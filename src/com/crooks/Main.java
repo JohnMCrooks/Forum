@@ -26,7 +26,15 @@ public class Main {
         Scanner consoleScanner = new Scanner(System.in);
         int currentpost = -1;
         while (true) {
-            System.out.printf("Current Post: %s \n", currentpost);
+            //print out replies to the current post
+            int postID = 0;
+            for (Post post : posts){
+                if (post.replyID== currentpost){
+                    System.out.printf("[%s] %s by %s.\n",postID,post.text,post.author);
+                }
+                postID++;
+            }
+            // ask for new ID
             System.out.println("Type id you want to see replies to: ");
             currentpost = Integer.valueOf(consoleScanner.nextLine());
         }
